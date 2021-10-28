@@ -1,2 +1,2 @@
-Social media facebook clone
-Social media facebook clone web developed using HTML,CSS and javscript
+Ecommerce fruit website
+Ecommerce Fruit website design clone web developed using HTML,CSS and javscript
