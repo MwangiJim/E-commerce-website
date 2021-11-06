@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce-Website-Design</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="account">
+        <nav>
+            <a href=""><img src="/IMAGES/images/logo.png" class="logo"></a>
+            <div id="nav-links">
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/products.html">Products</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="/Contact-Page.html">Contact</a></li>
+                    <li><a href="/Account-Page.html">Account</a></li>
+                </ul>
+            </div>
+            <a href=""><img src="/IMAGES/images/cart.png" class="cart"></a>
+            <img src="/IMAGES/images/menu.png" id="menu">
+        </nav>
+        <div class="left-cover">
+            <img src="/IMAGES/images/facebook.png">
+            <img src="/IMAGES/images/instagram.png">
+            <img src="/IMAGES/images/twitter.png">
+            <img src="/IMAGES/images/linkedin.png">
+        </div>
+        <div class="left-image">
+            <img src="/IMAGES/images/image1.png">
+        </div>
+        <div class="account-create">
+            <div class="form-btn">
+            <span onclick="login()">Login</span>
+            <span onclick="register()">Register</span>
+            <hr id="indicator">
+            </div>
+            <form id="login-form">
+                <input type="text" placeholder="Username">
+                <input type="password"placeholder="password" id="pass">
+                <p id="msg">Your Password is <span id="str"></span></p>
+                <button type="submit" class="Btn">Login</button>
+                <a href="">Forgot Password</a>
+            </form>
+
+            <form id="Regform">
+                <input type="text" placeholder="Username">
+                <input type="email"placeholder="Email">
+                <input type="password" placeholder="password">
+                <button type="submit" class="Btn">Regsister</button>
+            </form>
+        </div>
+    </section>
+    <script>
+        var cover = document.getElementById('nav-links');
+        var menu = document.getElementById('menu');
+
+        cover.style.right = "-220px";
+        menu.onclick = function(){
+            if( cover.style.right == "-220px"){
+                cover.style.right = "-20px";
+                menu.src = "/IMAGES/images/close.png"
+            }
+            else{
+                cover.style.right = "-220px";
+                menu.src = "/IMAGES/images/menu.png"
+            }
+        }
+    </script>
+    <script>
+      var productImg = document.getElementById('ProductImg');
+      var smallImg = document.getElementsByClassName('smallImg');
+      var password = document.getElementById('pass');
+      var msg = document.getElementById('msg');
+      var str =  document.getElementById('str');
+
+      smallImg[0].onclick = function(){
+        productImg.src = smallImg[0].src;
+      }
+      smallImg[1].onclick = function(){
+        productImg.src = smallImg[1].src;
+      }
+      smallImg[2].onclick = function(){
+        productImg.src = smallImg[2].src;
+      }
+      smallImg[3].onclick = function(){
+        productImg.src = smallImg[3].src;
+      }
+    </script>
+    <script>
+        var LoginForm = document.getElementById('login-form');
+        var RegForm = document.getElementById('Regform');
+        var Indicator = document.getElementById('indicator');
+
+        function register(){
+            RegForm.style.transform = "translateX(0px)";
+            LoginForm.style.transform = "translateX(0px)";
+            Indicator.style.transform = "translateX(100px)";
+        }
+        function  login(){
+            RegForm.style.transform = "translateX(300px)";
+            LoginForm.style.transform = "translateX(300px)";
+            Indicator.style.transform = "translateX(0px)";
+        }
+        password.addEventListener('input',function(){
+            if(password.value.length > 0){
+                msg.style.display = 'block';
+            }
+            else{
+                msg.style.display = 'none';
+            }
+            if(password.value.length <4){
+                str.innerHTML = 'weak';
+            }
+            else if(password.value.length >4&&password.value.length <8){
+                str.innerHTML = 'medium';
+            }
+            else if(password.value.length >8){
+                str.innerHTML = 'strong';
+            }
+        })
+    </script>
+</body>
+</html>
